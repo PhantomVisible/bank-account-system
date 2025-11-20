@@ -42,4 +42,5 @@ logging:
     org.springframework.data.mongodb: DEBUG  # MongoDB logs
     org.hibernate.SQL: DEBUG  # SQL queries
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # SQL parameters
+    com.banking.system.adapter.aop: DEBUG # Enable AOP logging
 
