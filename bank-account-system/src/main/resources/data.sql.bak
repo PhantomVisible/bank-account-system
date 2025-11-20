@@ -1,0 +1,17 @@
+-- Clear existing data (if any)
+DELETE FROM bank_accounts;
+DELETE FROM users;
+
+-- Insert test users
+INSERT INTO users (id, username, email, password, full_name, blocked, role)
+VALUES
+(1, 'john_doe', 'john@email.com', 'password123', 'John Doe', false, 'CUSTOMER'),
+(2, 'jane_smith', 'jane@email.com', 'password123', 'Jane Smith', false, 'CUSTOMER'),
+(3, 'bank_manager', 'manager@bank.com', 'admin123', 'Bank Manager', false, 'MANAGER');
+
+-- Insert test bank accounts
+INSERT INTO bank_accounts (id, account_number, balance, currency, user_id)
+VALUES
+(1, 'ACC123456', 1000.00, 'USD', 1),
+(2, 'ACC789012', 500.00, 'USD', 2),
+(3, 'ACC345678', 2500.00, 'EUR', 3);

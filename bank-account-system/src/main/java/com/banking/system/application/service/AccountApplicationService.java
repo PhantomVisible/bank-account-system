@@ -30,6 +30,11 @@ public class AccountApplicationService implements AccountUseCase {
     }
 
     @Override
+    public List<BankAccount> getAllAccounts() {
+        return accountRepository.findAll();
+    }
+
+    @Override
     public BankAccount createAccount(Long userId, String currency) {
         // 1. Validate user exists
         User user = userRepository.findById(userId)

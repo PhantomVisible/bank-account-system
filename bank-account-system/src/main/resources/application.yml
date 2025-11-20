@@ -2,6 +2,7 @@ spring:
   application:
     name: bank-account-system
 
+
   # PostgreSQL Configuration (for Users, Accounts, Roles)
   datasource:
     url: jdbc:postgresql://localhost:5432/banking_system
@@ -12,12 +13,13 @@ spring:
   # JPA/Hibernate Configuration
   jpa:
     hibernate:
-        ddl-auto: update  # Creates/updates tables automatically
+        ddl-auto: update
     show-sql: true  # Shows SQL queries in console (helpful for learning)
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+
 
   # MongoDB Configuration (for Transaction History)
   data:
@@ -38,3 +40,4 @@ logging:
     org.springframework.data.mongodb: DEBUG  # MongoDB logs
     org.hibernate.SQL: DEBUG  # SQL queries
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # SQL parameters
+

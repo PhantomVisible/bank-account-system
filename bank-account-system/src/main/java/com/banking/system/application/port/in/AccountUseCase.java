@@ -11,6 +11,9 @@ import java.util.Optional;
  */
 public interface AccountUseCase {
 
+    // For listing All Accounts
+    List<BankAccount> getAllAccounts();
+
     /**
      * Create a new bank account for a user
      * @param userId the user ID who owns the account
