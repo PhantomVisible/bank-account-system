@@ -1,5 +1,6 @@
 package com.banking.system.application.service;
 
+import com.banking.system.adapter.aop.LogTransaction;
 import com.banking.system.application.port.in.AccountUseCase;
 import com.banking.system.application.port.out.persistence.BankAccountRepository;
 import com.banking.system.application.port.out.persistence.UserRepository;
@@ -74,6 +75,7 @@ public class AccountApplicationService implements AccountUseCase {
     }
 
     @Override
+    @LogTransaction(type = "DEPOSIT", description = "Money deposited to account")
     public BankAccount deposit(String accountNumber, BigDecimal amount) {
         // 1. Validate amount is positive
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
@@ -99,6 +101,7 @@ public class AccountApplicationService implements AccountUseCase {
     }
 
     @Override
+    @LogTransaction(type = "WITHDRAW", description = "Money withdrawn from account")
     public BankAccount withdraw(String accountNumber, BigDecimal amount) {
         // 1. Validate amount is positive
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
@@ -124,6 +127,7 @@ public class AccountApplicationService implements AccountUseCase {
     }
 
     @Override
+    @LogTransaction(type = "TRANSFER", description = "Money transferred between accounts")
     public TransferResult transfer(String fromAccountNumber, String toAccountNumber, BigDecimal amount) {
         // 1. Validate amount is positive
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {

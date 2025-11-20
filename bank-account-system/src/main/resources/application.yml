@@ -1,6 +1,8 @@
 spring:
   application:
     name: bank-account-system
+  aop:
+    auto: true
 
 
   # PostgreSQL Configuration (for Users, Accounts, Roles)
